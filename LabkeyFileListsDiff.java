@@ -81,29 +81,72 @@ public class LabkeyFileListsDiff {
 		}
 
 		Collection<String> similar = new HashSet<String>( dataArrayMAIN );
-          	Collection<String> different = new HashSet<String>();
-          	different.addAll( dataArrayMAIN );
-          	different.addAll( dataArray );
+        Collection<String> different = new HashSet<String>();
+        Collection<String> inMainNotSecond = new HashSet<String>();
+        Collection<String> inSecondNotMain = new HashSet<String>();
+        different.addAll( dataArrayMAIN );
+        different.addAll( dataArray );
 
-          	similar.retainAll( dataArray );
-          	different.removeAll( similar );
+        similar.retainAll( dataArray );
+        different.removeAll( similar );
+
+        inMainNotSecond.addAll( dataArrayMAIN );
+        inMainNotSecond.removeAll( dataArray);
+        inSecondNotMain.addAll( dataArray );
+        inSecondNotMain.removeAll( dataArrayMAIN);
 
 		//List<String>similarr = (List)similar;
 
 		//similar.sort((left, right) -> left.getId() - right.getId());
 		//Collections.sort( similar );
 
-          	//System.out.printf("One:%s%nTwo:%s%n%n", dataArrayMAIN, dataArray);
-		System.out.printf("%n%nSimilar:%n");
-		for (Iterator<String> iter = similar.iterator(); iter.hasNext(); ) {
-    			String a = iter.next();
-    			System.out.printf("%s%n", a);
+          	//System.out.printf("One:%s\nTwo:%s\n\n", dataArrayMAIN, dataArray);
+
+
+        /*
+		System.out.printf("\n\nSimilar:");
+		if(similar.isEmpty()){
+			System.out.printf("There are no Similarities between the two files\n");
 		}
-		System.out.printf("%n%nDifferent:%n");
-		for (Iterator<String> iter = different.iterator(); iter.hasNext(); ) {
+		else{
+			System.out.printf("\n");
+			for (Iterator<String> iter = similar.iterator(); iter.hasNext(); ) {
     			String a = iter.next();
-    			System.out.printf("%s%n", a);
+    			System.out.printf("%s\n", a);
+			}
+		}*/
+
+
+		System.out.printf("Differences:");
+		if(different.isEmpty()){
+			System.out.printf("\tThere are no differences between the two files\n");
 		}
+		else{
+			System.out.printf("\n");
+			for (Iterator<String> iter = different.iterator(); iter.hasNext(); ) {
+    			String a = iter.next();
+    			System.out.printf("%s\n", a);
+			}
+
+			System.out.printf("\n\nAll Lines in %s, but not in %s:\n", args[0], args[1]);
+			for (Iterator<String> iter = inMainNotSecond.iterator(); iter.hasNext(); ) {
+	    			String a = iter.next();
+	    			System.out.printf("%s\n", a);
+			}
+			System.out.printf("\n\nAll Lines in %s, but not in %s:\n", args[1], args[0]);
+			for (Iterator<String> iter = inSecondNotMain.iterator(); iter.hasNext(); ) {
+	    			String a = iter.next();
+	    			System.out.printf("%s\n", a);
+			}
+		}
+		
+		
+
+
+
+		//To Implement
+			// What is in the development, and what is not in the production, and revese
+			// comparing the headers
 
 		
  	}

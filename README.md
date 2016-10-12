@@ -11,10 +11,12 @@
 5. Run the following command in terminal: javac LabkeyFileListsDiff.java
 6. Run the following command in terminal: java LabkeyFileListsDiff *filename1*.tsv *filename2*.tsv 
 
+**NOTES:**
+- Separate files: one that just gives the difference between the headers, one that gives differences between rows
 
 
 **Functionality to implement:**
-- More descriptive diff results
-- Download the files automatically
+- Current objective: Get the labkey data without having to read physical csv files
 - Implement loop to compare the similar matching overall lists
-- Combining the two above features
+
+

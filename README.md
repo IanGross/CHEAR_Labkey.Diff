@@ -1,4 +1,5 @@
 # CHEAR_Labkey.Diff
+## NOTE: This project is no longer relevant. The project no longer requires physical files and has migrated to the HADataC git project. Link: https://github.com/paulopinheiro1234/hadatac
 ## *Contains files for determining differences between lists in CHEAR Labkey List Schema*
 
 
@@ -18,5 +19,3 @@
 **Functionality to implement:**
 - Current objective: Get the labkey data without having to read physical csv files
 - Implement loop to compare the similar matching overall lists
-
-
